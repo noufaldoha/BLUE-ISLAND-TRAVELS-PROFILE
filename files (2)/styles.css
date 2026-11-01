@@ -1,0 +1,63 @@
+/* Blue Island Travels - styles.css */
+:root{--deep:#082260;--blue:#0e4696;--sky:#8fd9ff;--white:#fff;--glass:rgba(255,255,255,.1);--line:rgba(255,255,255,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;color:var(--white);line-height:1.65;font-size:17px;
+background:linear-gradient(160deg,var(--blue),var(--deep) 70%) fixed;min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+background:radial-gradient(circle at 50% 95%,transparent 0 120px,rgba(255,255,255,.07) 121px 123px,transparent 124px 260px,rgba(255,255,255,.06) 261px 263px,transparent 264px 420px,rgba(255,255,255,.05) 421px 423px,transparent 424px)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:5;background:rgba(8,34,96,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:22px;align-items:center;justify-content:space-between;padding-top:10px;padding-bottom:10px}
+nav img{height:34px;width:auto;display:block}
+nav ul{display:flex;gap:20px;list-style:none;flex-wrap:wrap;font-size:15px}
+.menu-btn{display:none;align-items:center;background:none;border:1px solid var(--line);border-radius:8px;color:#fff;font:inherit;font-size:15px;padding:6px 14px;cursor:pointer}
+nav a{text-decoration:none;opacity:.85}
+nav a.active{opacity:1;border-bottom:2px solid var(--sky)}nav a:hover{opacity:1;text-decoration:underline}
+.hero{position:relative;text-align:center;padding:84px 0 110px;overflow:hidden}
+.hero img.logo{width:min(560px,86%);height:auto;display:block;margin:0 auto 22px}
+.hero p.slogan{font-size:1.35rem;letter-spacing:.06em;opacity:.95}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;margin:34px 0 10px;letter-spacing:.02em}
+.hero p.sub{font-style:italic;opacity:.9}
+.route{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;opacity:.9}
+.route path.trail{fill:none;stroke:rgba(255,255,255,.55);stroke-width:2.5;stroke-dasharray:6 10;stroke-dashoffset:0}
+.plane{fill:#fff}
+@media (prefers-reduced-motion:no-preference){
+ .route path.trail{animation:draw 6s linear infinite}
+ @keyframes draw{to{stroke-dashoffset:-160}}
+}
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-size:1.75rem;margin-bottom:6px;line-height:1.25}
+h2::after{content:"";display:block;width:52px;height:3px;background:var(--sky);margin:10px 0 24px;border-radius:2px}
+p{max-width:70ch;margin-bottom:14px}
+ul.tick{list-style:none}
+ul.tick li{position:relative;padding-left:22px;margin-bottom:7px}
+ul.tick li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--sky)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px 36px}
+.services h3{font-size:1.15rem;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.services div{padding-left:16px;border-left:3px solid var(--sky)}
+.services div:nth-child(odd){background:var(--glass);padding:16px 18px;border-radius:10px;border-left-width:3px}
+.services div:nth-child(even){padding:16px 18px}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--glass)}
+dt,dd{padding:13px 18px;border-bottom:1px solid var(--line)}
+dt{font-weight:700;padding-right:36px}
+dl>:nth-last-child(-n+2){border-bottom:0}
+dd a{text-decoration:none;border-bottom:1px solid var(--sky)}
+.branches{display:grid;grid-template-columns:2fr 1fr 1fr;gap:20px}
+.branch{padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--glass)}
+.branch h3{font-size:1.1rem;margin-bottom:6px}
+.quote{font-size:1.25rem;max-width:62ch}
+footer{text-align:center;padding:48px 24px 60px;border-top:1px solid var(--line)}
+footer img{width:220px;height:auto;margin-bottom:12px}
+@media (max-width:760px){
+ .two,.branches{grid-template-columns:1fr}
+ .menu-btn{display:inline-flex}
+ nav ul{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(8,34,96,.97);border-bottom:1px solid var(--line);padding:8px 24px}
+ nav ul.open{display:flex}
+ nav ul a{display:block;padding:12px 0}
+ dl{grid-template-columns:1fr}dt{border-bottom:0;padding-bottom:0}
+ .hero{padding:56px 0 100px}
+}
